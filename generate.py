@@ -30,90 +30,109 @@ stat_proficiencies = [
 
 
 proficiency_bonus = (level - 1)//4 + 2;
+percent = 1.0/100.0;
 
 #characterSheetPath = "C:\\Users\\Matt\\Documents\\dev\\character-sheet-generator\\resources\\background.png"
 
 class OriginalCharacterSheetLayout(CharacterSheetLayout):
 	def __init__(self):
-		skill_step = 4.766 * mm
+		skill_step = 1.7*percent
+		proficiencies_x = 17.2*percent
+		saving_throws_x = 19.1*percent
+		stats_base_y = 64.55*percent
+		skills_base_y = 29.55*percent
+		proficiency_y_offset = 0.015 / 11.0
+
 		saving_throws = {
-			Skills.Strength:		(1.62*inch, 7.1*inch + 5*skill_step),#8.05*inch),
-			Skills.Dexterity:		(1.62*inch, 7.1*inch + 4*skill_step),#7.86*inch),
-			Skills.Constitution:	(1.62*inch, 7.1*inch + 3*skill_step),#7.67*inch),
-			Skills.Intelligence:	(1.62*inch, 7.1*inch + 2*skill_step),#7.48*inch),
-			Skills.Wisdom:			(1.62*inch, 7.1*inch + skill_step),#7.29*inch),
-			Skills.Charisma:		(1.62*inch, 7.1*inch),
-			Skills.Acrobatics:		(1.62*inch, 3.25*inch + 17*skill_step),
-			Skills.Animal_Handling:	(1.62*inch, 3.25*inch + 16*skill_step),
-			Skills.Arcana:			(1.62*inch, 3.25*inch + 15*skill_step),
-			Skills.Athletics:		(1.62*inch, 3.25*inch + 14*skill_step),
-			Skills.Deception:		(1.62*inch, 3.25*inch + 13*skill_step),
-			Skills.History:			(1.62*inch, 3.25*inch + 12*skill_step),
-			Skills.Insight:			(1.62*inch, 3.25*inch + 11*skill_step),
-			Skills.Intimidation:	(1.62*inch, 3.25*inch + 10*skill_step),
-			Skills.Investigation:	(1.62*inch, 3.25*inch + 9*skill_step),
-			Skills.Medicine:		(1.62*inch, 3.25*inch + 8*skill_step),
-			Skills.Nature:			(1.62*inch, 3.25*inch + 7*skill_step),
-			Skills.Perception:		(1.62*inch, 3.25*inch + 6*skill_step),
-			Skills.Performance:		(1.62*inch, 3.25*inch + 5*skill_step),
-			Skills.Persuasion:		(1.62*inch, 3.25*inch + 4*skill_step),
-			Skills.Religion:		(1.62*inch, 3.25*inch + 3*skill_step),
-			Skills.Slight_Of_Hand:	(1.62*inch, 3.25*inch + 2*skill_step),
-			Skills.Stealth:			(1.62*inch, 3.25*inch + skill_step),
-			Skills.Survival:		(1.62*inch, 3.25*inch)
+			Skills.Strength:		(saving_throws_x, stats_base_y + 5*skill_step),
+			Skills.Dexterity:		(saving_throws_x, stats_base_y + 4*skill_step),
+			Skills.Constitution:	(saving_throws_x, stats_base_y + 3*skill_step),
+			Skills.Intelligence:	(saving_throws_x, stats_base_y + 2*skill_step),
+			Skills.Wisdom:			(saving_throws_x, stats_base_y + skill_step),
+			Skills.Charisma:		(saving_throws_x, stats_base_y),
+			Skills.Acrobatics:		(saving_throws_x, skills_base_y + 17*skill_step),
+			Skills.Animal_Handling:	(saving_throws_x, skills_base_y + 16*skill_step),
+			Skills.Arcana:			(saving_throws_x, skills_base_y + 15*skill_step),
+			Skills.Athletics:		(saving_throws_x, skills_base_y + 14*skill_step),
+			Skills.Deception:		(saving_throws_x, skills_base_y + 13*skill_step),
+			Skills.History:			(saving_throws_x, skills_base_y + 12*skill_step),
+			Skills.Insight:			(saving_throws_x, skills_base_y + 11*skill_step),
+			Skills.Intimidation:	(saving_throws_x, skills_base_y + 10*skill_step),
+			Skills.Investigation:	(saving_throws_x, skills_base_y + 9*skill_step),
+			Skills.Medicine:		(saving_throws_x, skills_base_y + 8*skill_step),
+			Skills.Nature:			(saving_throws_x, skills_base_y + 7*skill_step),
+			Skills.Perception:		(saving_throws_x, skills_base_y + 6*skill_step),
+			Skills.Performance:		(saving_throws_x, skills_base_y + 5*skill_step),
+			Skills.Persuasion:		(saving_throws_x, skills_base_y + 4*skill_step),
+			Skills.Religion:		(saving_throws_x, skills_base_y + 3*skill_step),
+			Skills.Slight_Of_Hand:	(saving_throws_x, skills_base_y + 2*skill_step),
+			Skills.Stealth:			(saving_throws_x, skills_base_y + skill_step),
+			Skills.Survival:		(saving_throws_x, skills_base_y)
 		}
 		proficiencies = {
-			Skills.Strength:	   (1.465*inch, 7.115*inch + 5*skill_step),
-			Skills.Dexterity:	   (1.465*inch, 7.115*inch + 4*skill_step),
-			Skills.Constitution:   (1.465*inch, 7.115*inch + 3*skill_step),
-			Skills.Intelligence:   (1.465*inch, 7.115*inch + 2*skill_step),
-			Skills.Wisdom:		   (1.465*inch, 7.115*inch + skill_step),
-			Skills.Charisma:	   (1.465*inch, 7.115*inch),
-			Skills.Acrobatics:	   (1.465*inch, 3.265*inch + 17*skill_step),
-			Skills.Animal_Handling:(1.465*inch, 3.265*inch + 16*skill_step),
-			Skills.Arcana:		   (1.465*inch, 3.265*inch + 15*skill_step),
-			Skills.Athletics:	   (1.465*inch, 3.265*inch + 14*skill_step),
-			Skills.Deception:	   (1.465*inch, 3.265*inch + 13*skill_step),
-			Skills.History:		   (1.465*inch, 3.265*inch + 12*skill_step),
-			Skills.Insight:		   (1.465*inch, 3.265*inch + 11*skill_step),
-			Skills.Intimidation:   (1.465*inch, 3.265*inch + 10*skill_step),
-			Skills.Investigation:  (1.465*inch, 3.265*inch + 9*skill_step),
-			Skills.Medicine:	   (1.465*inch, 3.265*inch + 8*skill_step),
-			Skills.Nature:		   (1.465*inch, 3.265*inch + 7*skill_step),
-			Skills.Perception:	   (1.465*inch, 3.265*inch + 6*skill_step),
-			Skills.Performance:	   (1.465*inch, 3.265*inch + 5*skill_step),
-			Skills.Persuasion:	   (1.465*inch, 3.265*inch + 4*skill_step),
-			Skills.Religion:	   (1.465*inch, 3.265*inch + 3*skill_step),
-			Skills.Slight_Of_Hand: (1.465*inch, 3.265*inch + 2*skill_step),
-			Skills.Stealth:		   (1.465*inch, 3.265*inch + skill_step),
-			Skills.Survival:	   (1.465*inch, 3.265*inch)
+			Skills.Strength:	   (proficiencies_x, proficiency_y_offset + stats_base_y + 5*skill_step),
+			Skills.Dexterity:	   (proficiencies_x, proficiency_y_offset + stats_base_y + 4*skill_step),
+			Skills.Constitution:   (proficiencies_x, proficiency_y_offset + stats_base_y + 3*skill_step),
+			Skills.Intelligence:   (proficiencies_x, proficiency_y_offset + stats_base_y + 2*skill_step),
+			Skills.Wisdom:		   (proficiencies_x, proficiency_y_offset + stats_base_y + skill_step),
+			Skills.Charisma:	   (proficiencies_x, proficiency_y_offset + stats_base_y),
+			Skills.Acrobatics:	   (proficiencies_x, proficiency_y_offset + skills_base_y + 17*skill_step),
+			Skills.Animal_Handling:(proficiencies_x, proficiency_y_offset + skills_base_y + 16*skill_step),
+			Skills.Arcana:		   (proficiencies_x, proficiency_y_offset + skills_base_y + 15*skill_step),
+			Skills.Athletics:	   (proficiencies_x, proficiency_y_offset + skills_base_y + 14*skill_step),
+			Skills.Deception:	   (proficiencies_x, proficiency_y_offset + skills_base_y + 13*skill_step),
+			Skills.History:		   (proficiencies_x, proficiency_y_offset + skills_base_y + 12*skill_step),
+			Skills.Insight:		   (proficiencies_x, proficiency_y_offset + skills_base_y + 11*skill_step),
+			Skills.Intimidation:   (proficiencies_x, proficiency_y_offset + skills_base_y + 10*skill_step),
+			Skills.Investigation:  (proficiencies_x, proficiency_y_offset + skills_base_y + 9*skill_step),
+			Skills.Medicine:	   (proficiencies_x, proficiency_y_offset + skills_base_y + 8*skill_step),
+			Skills.Nature:		   (proficiencies_x, proficiency_y_offset + skills_base_y + 7*skill_step),
+			Skills.Perception:	   (proficiencies_x, proficiency_y_offset + skills_base_y + 6*skill_step),
+			Skills.Performance:	   (proficiencies_x, proficiency_y_offset + skills_base_y + 5*skill_step),
+			Skills.Persuasion:	   (proficiencies_x, proficiency_y_offset + skills_base_y + 4*skill_step),
+			Skills.Religion:	   (proficiencies_x, proficiency_y_offset + skills_base_y + 3*skill_step),
+			Skills.Slight_Of_Hand: (proficiencies_x, proficiency_y_offset + skills_base_y + 2*skill_step),
+			Skills.Stealth:		   (proficiencies_x, proficiency_y_offset + skills_base_y + skill_step),
+			Skills.Survival:	   (proficiencies_x, proficiency_y_offset + skills_base_y)
 		}
+
+		char_info_base_x = 44.7*percent
+		char_info_x_step = (1.5/8.5)
+		char_info_y_1 = 89*percent
+		char_info_y_2 = 92.3*percent
+		stat_x = 9.45*percent
+		stat_step = 9*percent
+		stat_score_base_y = 30*percent
+		stat_modifier_base_y = 32.5*percent
 		super(OriginalCharacterSheetLayout, self).__init__(
 			"C:\\Users\\Matt\\Documents\\dev\\character-sheet-generator\\resources\\official.png",
-			name=(inch, 9.9*inch),
-			character_class=(3.8*inch, 10.15*inch),
-			background=(5.3*inch, 10.15*inch),
-			player_name=(6.8*inch, 10.15*inch),
-			race=(3.8*inch, 9.8*inch),
-			alignment=(5.3*inch, 9.8*inch),
-			str_score=		(0.8*inch, 8.25*inch),
-			str_modifier=	(0.8*inch, 8.55*inch),
-			dex_score=		(0.8*inch, 7.25*inch),
-			dex_modifier=	(0.8*inch, 7.55*inch),
-			con_score=		(0.8*inch, 6.28*inch),
-			con_modifier=	(0.8*inch, 6.55*inch),
-			int_score=		(0.8*inch, 5.28*inch),
-			int_modifier=	(0.8*inch, 5.56*inch),
-			wis_score=		(0.8*inch, 4.3*inch),
-			wis_modifier=	(0.8*inch, 4.58*inch),
-			cha_score=		(0.8*inch, 3.3*inch),
-			cha_modifier=	(0.8*inch, 3.58*inch),
-			proficiency_bonus=(1.52*inch, 8.455*inch),
-			passive_perception=(0.6*inch, 2.6*inch),
+			name=			(9*percent, 90*percent),
+			character_class=(char_info_base_x, 						char_info_y_2),
+			background=		(char_info_base_x + char_info_x_step, 	char_info_y_2),
+			player_name=	(char_info_base_x + 2*char_info_x_step, char_info_y_2),
+			race=			(char_info_base_x, 						char_info_y_1),
+			alignment=		(char_info_base_x + char_info_x_step, 	char_info_y_1),
+			str_score=		(stat_x, stat_score_base_y + 5*stat_step),
+			dex_score=		(stat_x, stat_score_base_y + 4*stat_step),
+			con_score=		(stat_x, stat_score_base_y + 3*stat_step),
+			int_score=		(stat_x, stat_score_base_y + 2*stat_step),
+			wis_score=		(stat_x, stat_score_base_y + stat_step),
+			cha_score=		(stat_x, stat_score_base_y),
+			str_modifier=	(stat_x, stat_modifier_base_y + 5*stat_step),
+			dex_modifier=	(stat_x, stat_modifier_base_y + 4*stat_step),
+			con_modifier=	(stat_x, stat_modifier_base_y + 3*stat_step),
+			int_modifier=	(stat_x, stat_modifier_base_y + 2*stat_step),
+			wis_modifier=	(stat_x, stat_modifier_base_y + stat_step),
+			cha_modifier=	(stat_x, stat_modifier_base_y),
+			proficiency_bonus=(17.9*percent, 76.9*percent),
+			passive_perception=(7*percent, 23.6*percent),
 			saving_throws=saving_throws,
 			proficiencies=proficiencies)
 
 layout = OriginalCharacterSheetLayout()
+
+c = canvas.Canvas("test.pdf", pagesize)
+c.drawInlineImage(layout.Background_Path, 0, 0, pagesize[0], pagesize[1])
 
 def modifier(proficiency):
 	return (scores[proficiency.Stat()] - 10)//2
@@ -124,45 +143,51 @@ def saving_throw(proficiency):
 		saving_throw_value += proficiency_bonus
 	return saving_throw_value
 
-c = canvas.Canvas("test.pdf", pagesize)
-c.drawInlineImage(layout.Background_Path, 0, 0, pagesize[0], pagesize[1])
+def draw_string(point, value):
+	c.drawString(point[0] * pagesize[0], point[1] * pagesize[1], value)
+
+def draw_centered_string(point, value):
+	c.drawCentredString(point[0] * pagesize[0], point[1] * pagesize[1], value)
+
+def draw_circle(point, radius):
+	c.circle(point[0] * pagesize[0], point[1] * pagesize[1], radius, fill=1)
 
 ############################
 #        The header
 ############################
 c.setFontSize(16)
-c.drawString(layout.Name[0], layout.Name[1], name)
+draw_string(layout.Name, name)
 
 c.setFontSize(12)
-c.drawString(layout.Class[0], layout.Class[1], class_5e + ' - ' + str(level))
-c.drawString(layout.Background[0], layout.Background[1], background)
-c.drawString(layout.Player_Name[0], layout.Player_Name[1], player)
-c.drawString(layout.Race[0], layout.Race[1], race)
-c.drawString(layout.Alignment[0], layout.Alignment[1], alignment)
+draw_string(layout.Class, class_5e + ' - ' + str(level))
+draw_string(layout.Background, background)
+draw_string(layout.Player_Name, player)
+draw_string(layout.Race, race)
+draw_string(layout.Alignment, alignment)
 
 
 ############################
 #        The Stats
 ############################
 c.setFontSize(8)
-c.drawCentredString(layout.Str_Score[0], layout.Str_Score[1], str(scores[Skills.Strength]))
-c.drawCentredString(layout.Dex_Score[0], layout.Dex_Score[1], str(scores[Skills.Dexterity]))
-c.drawCentredString(layout.Con_Score[0], layout.Con_Score[1], str(scores[Skills.Constitution]))
-c.drawCentredString(layout.Int_Score[0], layout.Int_Score[1], str(scores[Skills.Intelligence]))
-c.drawCentredString(layout.Wis_Score[0], layout.Wis_Score[1], str(scores[Skills.Wisdom]))
-c.drawCentredString(layout.Cha_Score[0], layout.Cha_Score[1], str(scores[Skills.Charisma]))
+draw_centered_string(layout.Str_Score, str(scores[Skills.Strength]))
+draw_centered_string(layout.Dex_Score, str(scores[Skills.Dexterity]))
+draw_centered_string(layout.Con_Score, str(scores[Skills.Constitution]))
+draw_centered_string(layout.Int_Score, str(scores[Skills.Intelligence]))
+draw_centered_string(layout.Wis_Score, str(scores[Skills.Wisdom]))
+draw_centered_string(layout.Cha_Score, str(scores[Skills.Charisma]))
 
 c.setFontSize(18)
-c.drawCentredString(layout.Str_Modifier[0], layout.Str_Modifier[1], str(modifier(Skills.Strength)))
-c.drawCentredString(layout.Dex_Modifier[0], layout.Dex_Modifier[1], str(modifier(Skills.Dexterity)))
-c.drawCentredString(layout.Con_Modifier[0], layout.Con_Modifier[1], str(modifier(Skills.Constitution)))
-c.drawCentredString(layout.Int_Modifier[0], layout.Int_Modifier[1], str(modifier(Skills.Intelligence)))
-c.drawCentredString(layout.Wis_Modifier[0], layout.Wis_Modifier[1], str(modifier(Skills.Wisdom)))
-c.drawCentredString(layout.Cha_Modifier[0], layout.Cha_Modifier[1], str(modifier(Skills.Charisma)))
+draw_centered_string(layout.Str_Modifier, str(modifier(Skills.Strength)))
+draw_centered_string(layout.Dex_Modifier, str(modifier(Skills.Dexterity)))
+draw_centered_string(layout.Con_Modifier, str(modifier(Skills.Constitution)))
+draw_centered_string(layout.Int_Modifier, str(modifier(Skills.Intelligence)))
+draw_centered_string(layout.Wis_Modifier, str(modifier(Skills.Wisdom)))
+draw_centered_string(layout.Cha_Modifier, str(modifier(Skills.Charisma)))
 
 c.setFontSize(16)
-c.drawCentredString(layout.Proficiency_Bonus[0], layout.Proficiency_Bonus[1], "+" + str(proficiency_bonus))
-c.drawCentredString(layout.Passive_Perception[0], layout.Passive_Perception[1], str(10 + saving_throw(Skills.Perception)))
+draw_centered_string(layout.Proficiency_Bonus, "+" + str(proficiency_bonus))
+draw_centered_string(layout.Passive_Perception, str(10 + saving_throw(Skills.Perception)))
 
 
 ############################
@@ -170,16 +195,14 @@ c.drawCentredString(layout.Passive_Perception[0], layout.Passive_Perception[1], 
 ############################
 c.setFontSize(8)
 for skill in Skills:
-	saving_throw_position = layout.Saving_Throws[skill]
-	c.drawString(saving_throw_position[0], saving_throw_position[1], "+" + str(saving_throw(skill)))
+	draw_string(layout.Saving_Throws[skill], "+" + str(saving_throw(skill)))
 
 
 ############################
 #      Saving Throws
 ############################
 for skill in stat_proficiencies:
-	proficiency_position = layout.Proficiencies[skill]
-	c.circle(proficiency_position[0], proficiency_position[1], 1*mm, fill=1)
+	draw_circle(layout.Proficiencies[skill], 1*mm)
 
 
 
