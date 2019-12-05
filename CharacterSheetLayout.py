@@ -64,6 +64,7 @@ class CharacterSheetLayout():
 				 player_name,
 				 race,
 				 alignment,
+				 initiative,
 				 speed,
 				 hp_maximum,
 				 hit_dice,
@@ -90,6 +91,7 @@ class CharacterSheetLayout():
 		self.Player_Name = player_name
 		self.Race = race
 		self.Alignment = alignment
+		self.Initiative = initiative
 		self.Speed = speed
 		self.Hp_Maximum = hp_maximum
 		self.Hit_Dice = hit_dice

@@ -115,6 +115,7 @@ class OriginalCharacterSheetLayout(CharacterSheetLayout):
 			player_name=	(char_info_base_x + 2*char_info_x_step, char_info_y_2),
 			race=			(char_info_base_x, 						char_info_y_1),
 			alignment=		(char_info_base_x + char_info_x_step, 	char_info_y_1),
+			initiative=		(49.7*percent, 79*percent),
 			speed=			(59.3*percent, 79*percent),
 			hp_maximum=     (50*percent, 74*percent),
 			hit_dice=		(41.7*percent, 58.8*percent),
@@ -192,8 +193,11 @@ draw_centered_string(layout.Wis_Modifier, str(modifier(Skills.Wisdom)))
 draw_centered_string(layout.Cha_Modifier, str(modifier(Skills.Charisma)))
 
 c.setFontSize(16)
-draw_centered_string(layout.Proficiency_Bonus, "+" + str(proficiency_bonus))
+draw_centered_string(layout.Proficiency_Bonus, "%+d" % proficiency_bonus)
 draw_centered_string(layout.Passive_Perception, str(10 + saving_throw(Skills.Perception)))
+
+c.setFontSize(18)
+draw_centered_string(layout.Initiative, "%+d" % modifier(Skills.Dexterity))
 draw_centered_string(layout.Speed, str(speed))
 
 c.setFontSize(8)
@@ -206,7 +210,7 @@ draw_string(layout.Hit_Dice, hit_dice)
 ############################
 c.setFontSize(8)
 for skill in Skills:
-	draw_string(layout.Saving_Throws[skill], "+" + str(saving_throw(skill)))
+	draw_string(layout.Saving_Throws[skill], "%+d" % saving_throw(skill))
 
 
 ############################
