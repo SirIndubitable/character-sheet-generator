@@ -65,6 +65,8 @@ class CharacterSheetLayout():
 				 race,
 				 alignment,
 				 speed,
+				 hp_maximum,
+				 hit_dice,
 				 str_score,
 				 str_modifier,
 				 dex_score,
@@ -89,6 +91,8 @@ class CharacterSheetLayout():
 		self.Race = race
 		self.Alignment = alignment
 		self.Speed = speed
+		self.Hp_Maximum = hp_maximum
+		self.Hit_Dice = hit_dice
 		self.Str_Score = str_score
 		self.Str_Modifier = str_modifier
 		self.Dex_Score = dex_score

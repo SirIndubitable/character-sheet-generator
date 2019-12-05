@@ -12,6 +12,8 @@ player = 'Matt'
 race = 'Tefling'
 alignment = 'CN'
 speed = 30
+hp_maximum = 91
+hit_dice = "9d8"
 scores = {
 	Skills.Strength: 	 15,
 	Skills.Dexterity: 	 18,
@@ -114,6 +116,8 @@ class OriginalCharacterSheetLayout(CharacterSheetLayout):
 			race=			(char_info_base_x, 						char_info_y_1),
 			alignment=		(char_info_base_x + char_info_x_step, 	char_info_y_1),
 			speed=			(59.3*percent, 79*percent),
+			hp_maximum=     (50*percent, 74*percent),
+			hit_dice=		(41.7*percent, 58.8*percent),
 			str_score=		(stat_x, stat_score_base_y + 5*stat_step),
 			dex_score=		(stat_x, stat_score_base_y + 4*stat_step),
 			con_score=		(stat_x, stat_score_base_y + 3*stat_step),
@@ -191,6 +195,10 @@ c.setFontSize(16)
 draw_centered_string(layout.Proficiency_Bonus, "+" + str(proficiency_bonus))
 draw_centered_string(layout.Passive_Perception, str(10 + saving_throw(Skills.Perception)))
 draw_centered_string(layout.Speed, str(speed))
+
+c.setFontSize(8)
+draw_string(layout.Hp_Maximum, str(hp_maximum))
+draw_string(layout.Hit_Dice, hit_dice)
 
 
 ############################
