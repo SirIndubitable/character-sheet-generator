@@ -11,6 +11,7 @@ background = 'Urchin'
 player = 'Matt'
 race = 'Tefling'
 alignment = 'CN'
+speed = 30
 scores = {
 	Skills.Strength: 	 15,
 	Skills.Dexterity: 	 18,
@@ -112,6 +113,7 @@ class OriginalCharacterSheetLayout(CharacterSheetLayout):
 			player_name=	(char_info_base_x + 2*char_info_x_step, char_info_y_2),
 			race=			(char_info_base_x, 						char_info_y_1),
 			alignment=		(char_info_base_x + char_info_x_step, 	char_info_y_1),
+			speed=			(59.3*percent, 79*percent),
 			str_score=		(stat_x, stat_score_base_y + 5*stat_step),
 			dex_score=		(stat_x, stat_score_base_y + 4*stat_step),
 			con_score=		(stat_x, stat_score_base_y + 3*stat_step),
@@ -188,6 +190,7 @@ draw_centered_string(layout.Cha_Modifier, str(modifier(Skills.Charisma)))
 c.setFontSize(16)
 draw_centered_string(layout.Proficiency_Bonus, "+" + str(proficiency_bonus))
 draw_centered_string(layout.Passive_Perception, str(10 + saving_throw(Skills.Perception)))
+draw_centered_string(layout.Speed, str(speed))
 
 
 ############################

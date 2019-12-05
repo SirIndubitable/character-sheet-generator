@@ -56,14 +56,15 @@ class Skills(Enum):
 	    return switcher[self]
 
 class CharacterSheetLayout():
-	def __init__(self, \
-				 background_path,\
-				 name, \
-				 character_class, \
-				 background, \
-				 player_name, \
-				 race, \
+	def __init__(self,
+				 background_path,
+				 name,
+				 character_class,
+				 background,
+				 player_name,
+				 race,
 				 alignment,
+				 speed,
 				 str_score,
 				 str_modifier,
 				 dex_score,
@@ -87,6 +88,7 @@ class CharacterSheetLayout():
 		self.Player_Name = player_name
 		self.Race = race
 		self.Alignment = alignment
+		self.Speed = speed
 		self.Str_Score = str_score
 		self.Str_Modifier = str_modifier
 		self.Dex_Score = dex_score
