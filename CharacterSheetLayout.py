@@ -67,9 +67,15 @@ class CharacterSheetLayout():
         self.Canvas.setFontSize(size * self._font_size_scale)
 
     def draw_strings(self, point, spacing, strings):
+        font_size_to_points = 0.75
         x = point[0]
-        y = point[1]
-        text_block = self.Canvas.beginText(x * self.PageSize[0], y * self.PageSize[1])
+        if isinstance(strings,(tuple,list)):
+            x += spacing
+            bullet_x = (x + point[0])/2.0
+            for i in range(len(strings)):
+                bullet_y_offset = (self.Canvas._fontsize * font_size_to_points * 0.5 / self.PageSize[1]) - (spacing * i)
+                self.draw_circle((bullet_x, point[1] + bullet_y_offset), (self.Canvas._fontsize * font_size_to_points) / 8.0)
+        text_block = self.Canvas.beginText(x * self.PageSize[0], point[1] * self.PageSize[1])
         text_block.setLeading(spacing * self.PageSize[1])
         text_block.textLines(strings, trim=0)
         self.Canvas.drawText(text_block)
