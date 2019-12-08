@@ -67,9 +67,9 @@ equipment = """None
 None
 None"""
 personality_traits = ("I eat like a pig and have bad manners", "I don't like to bathe")
-ideals = "I help people who help me - That's what keeps us alive"
-bonds = "No one else should have to endure the hardships I've been through"
-flaws = "It's not stealing if I need it more than someone else"
+ideals = "I help people who help me - That's what \nkeeps us alive"
+bonds = "No one else should have to endure the \nhardships I've been through"
+flaws = "It's not stealing if I need it more than \nsomeone else"
 
 
 proficiency_bonus = (level - 1)//4 + 2;
