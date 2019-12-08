@@ -30,10 +30,6 @@ class OriginalCharacterSheetLayout(CharacterSheetLayout):
         self.draw_string((base_x + x_step, y_1), alignment)
 
 
-    def _ingrement(value, step):
-        value += step
-        return value
-
     def Draw_Stats(self, scores, modifiers):
         x = 9.45*percent
         step = 9*percent
