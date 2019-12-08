@@ -105,3 +105,6 @@ sheet.Draw_Characteristics(personality_traits, ideals, bonds, flaws)
 
 c.showPage()
 c.save()
+
+import subprocess
+subprocess.call(["start", "test.pdf"], shell=True)
