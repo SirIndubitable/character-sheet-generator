@@ -86,7 +86,8 @@ initiative = modifiers[Skills.Dexterity]
 
 
 c = canvas.Canvas("test.pdf", pagesize)
-sheet = OriginalCharacterSheetLayout(c)
+sheet = ElTesoroDelDragonCharacterSheetLayout(c)
+#sheet = OriginalCharacterSheetLayout(c)
 c.drawInlineImage(sheet.Background, 0, 0, pagesize[0], pagesize[1])
 
 sheet.Draw_Character_Info(name, level, class_5e, background, player_name, race, alignment)
