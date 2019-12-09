@@ -106,8 +106,16 @@ class OriginalCharacterSheetLayout(CharacterSheetLayout):
 
 
     def Draw_Other_Proficiencies(self, other_proficiencies):
+        proficiencies_string = ""
+        for title, proficiencies in other_proficiencies.items():
+            proficiencies_string += title
+            proficiencies_string += ':\n'
+            for proficiency in proficiencies:
+                proficiencies_string += '    '
+                proficiencies_string += proficiency
+                proficiencies_string += '\n'
         self.Set_Font_Size(8)
-        self.draw_strings((0.6/8.5, 20*percent), self._line_spacing, other_proficiencies)
+        self.draw_strings((0.6/8.5, 20*percent), self._line_spacing, proficiencies_string)
 
 
     def Draw_Equipment(self, equipment):

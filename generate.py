@@ -3,6 +3,7 @@ from reportlab.lib.units import mm, inch
 from reportlab.lib.pagesizes import *
 from CharacterSheetLayout import CharacterSheetLayout, Skills
 from OriginalCharacterSheetLayout import OriginalCharacterSheetLayout
+from ElTesoroDelDragonCharacterSheetLayout import ElTesoroDelDragonCharacterSheetLayout
 
 pagesize = LETTER
 name = 'Schlage'
@@ -31,18 +32,12 @@ stat_proficiencies = [
     Skills.Slight_Of_Hand,
     Skills.Stealth,
 ]
-other_proficiencies = """
-Armor:
-    Light
-Weapons:
-    Simple
-Languages:
-    Common
-    Infernal
-Tools:
-    Disguise Kit
-    Theives' Tools
-"""
+other_proficiencies = {
+    "Armor":     ["Light"],
+    "Weapons":   ["Simple"],
+    "Languages": ["Common", "Infernal"],
+    "Tools":     ["Disguise Kit", "Theives' Tools"],
+}
 features_and_traits = """Urchin Features:
     City Secrets
 Racial Features:
@@ -91,7 +86,7 @@ initiative = modifiers[Skills.Dexterity]
 
 
 c = canvas.Canvas("test.pdf", pagesize)
-sheet = OriginalCharacterSheetLayout(c);
+sheet = OriginalCharacterSheetLayout(c)
 c.drawInlineImage(sheet.Background, 0, 0, pagesize[0], pagesize[1])
 
 sheet.Draw_Character_Info(name, level, class_5e, background, player_name, race, alignment)
