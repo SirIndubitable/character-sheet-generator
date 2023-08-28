@@ -1,2 +1,2 @@
-ReportLab==3.5.32
+ReportLab==3.6.13
 pdfrw
